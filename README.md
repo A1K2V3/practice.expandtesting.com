@@ -1,0 +1,1 @@
+This repository is can be used as learning resource for automation testing using python by solving problems present at practice.expandtesting.com
