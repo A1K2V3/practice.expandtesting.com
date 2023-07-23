@@ -32,7 +32,7 @@ class Test_WebInput(BaseTest):
         webinput.clear_inputs()
         webinput.input_date(date)
         webinput.display_inputs()
-        assert webinput.get_output_date() == str(date)
+        assert webinput.get_output_date() == date
 
     def test_input_number_by_mouse_click(self, webinput):
         number = TestData.WebOutputPage_Number
@@ -40,3 +40,16 @@ class Test_WebInput(BaseTest):
         webinput.input_number_by_mouse_click(number)
         webinput.display_inputs()
         assert webinput.get_output_number(number) == number
+
+    @pytest.mark.parametrize("number, text, password, date", zip(TestData.web_input_numbers, TestData.web_input_text, TestData.web_input_password, TestData.web_input_date))
+    def test_all_inputs(self, webinput, number, text, password, date):
+        webinput.clear_inputs()
+        webinput.input_number(number)
+        webinput.input_text(text)
+        webinput.input_password(password)
+        webinput.input_date(date)
+        webinput.display_inputs()
+        assert webinput.get_output_number() == number
+        assert webinput.get_output_text() == text
+        assert webinput.get_output_password() == password
+        assert webinput.get_output_date() == date

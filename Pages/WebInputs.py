@@ -1,3 +1,4 @@
+from datetime import datetime
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
@@ -158,11 +159,12 @@ class WebInputs(BasePage):
         `micro_timeout`, which is likely a predefined constant representing a very short duration of
         time
         """
-        # self.enter_text_on_element(self.INPUT_DATE, str(date), timeout)
-        date = "".join(str(date.strftime("%d/%m/%Y")).split("/"))
         self.click_on_element(self.INPUT_DATE, timeout)
-        for num in date:
-            key = getattr(Keys, f"NUMPAD{num}")
+        date_format = "%m/%d/%Y" if self.driver.capabilities["browserName"] == "firefox" else "%d/%m/%Y"
+        for digit in date.strftime(date_format):
+            if not digit.isdigit():
+                continue
+            key = getattr(Keys, f"NUMPAD{digit}")
             self.press_key(key)
 
     def get_output_date(self, timeout=micro_timeout):
@@ -174,4 +176,4 @@ class WebInputs(BasePage):
         micro_timeout value
         :return: the output date.
         """
-        return self.get_element_text(self.OUTPUT_DATE, timeout)
+        return datetime.strptime(self.get_element_text(self.OUTPUT_DATE, timeout), "%Y-%m-%d").date()
