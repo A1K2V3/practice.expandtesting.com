@@ -33,6 +33,9 @@ class WebInputs(BasePage):
         super().__init__(driver)
         self.launch_url(TestData.WebInputPage_Url)
 
+    def get_webinput_page_title(self):
+        return self.get_page_title()
+
     def input_number(self, number, timeout=micro_timeout):
         """
         The function `input_number` is used to enter a number into an input field.

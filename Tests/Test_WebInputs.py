@@ -6,6 +6,9 @@ from Tests.BaseTest import BaseTest
 
 class Test_WebInput(BaseTest):
 
+    def test_verify_title(self, webinput):
+        assert webinput.get_webinput_page_title() == "Web inputs"
+
     def test_input_number(self, webinput):
         number = TestData.WebOutputPage_Number
         webinput.clear_inputs()
