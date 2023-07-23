@@ -11,10 +11,11 @@ from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 from Pages.WebInputs import WebInputs
+from Pages.AddRemoveElements import AddRemoveElements
 
 
 @pytest.fixture(params=["chrome", "firefox", "edge"], scope="class")
-# @pytest.fixture(params=["firefox"], scope="class")
+# @pytest.fixture(params=["chrome"], scope="class")
 def init_driver(request):
     """
     The above function is a pytest fixture that initializes a web driver based on the parameter passed
@@ -61,3 +62,7 @@ def webinput(request):
   driver object.
   """
     return WebInputs(request.cls.driver)
+
+@pytest.fixture
+def add_remove_element(request):
+    return AddRemoveElements(request.cls.driver)

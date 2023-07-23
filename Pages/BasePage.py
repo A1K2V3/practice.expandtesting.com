@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+from selenium import webdriver
 
 class BasePage:
 
@@ -18,6 +19,8 @@ class BasePage:
         will be used to interact with the web page
         """
         self.driver = driver
+
+        # self.driver = webdriver.Chrome()
         self.action = ActionChains(self.driver)
 
     def launch_url(self, url):
@@ -161,3 +164,6 @@ class BasePage:
         """
         self.action.send_keys(key)
         self.action.perform()
+    
+    def find_all_elements(self, by_locator):
+        return self.driver.find_elements(*by_locator)
