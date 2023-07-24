@@ -167,3 +167,6 @@ class BasePage:
     
     def find_all_elements(self, by_locator):
         return self.driver.find_elements(*by_locator)
+    
+    def reload_page(self):
+        self.driver.refresh()

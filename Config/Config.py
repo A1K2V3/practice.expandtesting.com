@@ -22,4 +22,9 @@ class TestData:
     ####################################### Add Remove Element Page###########################
     AddRemoveElementsPage_Url = "https://practice.expandtesting.com/add-remove-elements"
     AddRemoveElementsPage_Title = "Test Automation Practice: Working with web Elements (Add and Remove)"
+
+    #################################### Notification Message ################################
+    Notification_Message_Page_Url = "https://practice.expandtesting.com/notification-message-rendered"
+    Success_Notification = "Action successful"
+    Failed_Notification = "Action unsuccessful, please try again"
     
