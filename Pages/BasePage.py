@@ -7,6 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from selenium import webdriver
 
+
 class BasePage:
 
     def __init__(self, driver) -> None:
@@ -164,9 +165,9 @@ class BasePage:
         """
         self.action.send_keys(key)
         self.action.perform()
-    
+
     def find_all_elements(self, by_locator):
         return self.driver.find_elements(*by_locator)
-    
+
     def reload_page(self):
         self.driver.refresh()

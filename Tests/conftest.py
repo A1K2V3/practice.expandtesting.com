@@ -64,9 +64,11 @@ def webinput(request):
   """
     return WebInputs(request.cls.driver)
 
+
 @pytest.fixture
 def add_remove_element(request):
     return AddRemoveElements(request.cls.driver)
+
 
 @pytest.fixture
 def notification_message(request):

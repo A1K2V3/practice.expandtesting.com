@@ -43,7 +43,7 @@ class WebInputs(BasePage):
         :param number: The number parameter is the value that you want to input into the input field. It
         can be any numerical value that you want to enter
         :param timeout: The `timeout` parameter is the maximum amount of time to wait for the element to
-        be interactable before raising a timeout exception. It is an optional parameter and if not
+        be intractable before raising a timeout exception. It is an optional parameter and if not
         provided, it will default to a predefined value called `micro_timeout`
         """
         self.enter_text_on_element(self.INPUT_NUMBER, number, timeout)
